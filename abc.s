@@ -28,7 +28,6 @@ print:
     mov ebp, esp
 
     call len_check
-    ; mov [name_len], eax
 
     ; ;print message
     mov edx, eax
@@ -67,7 +66,6 @@ eol_insert_loop:
 
 eol_found:
     mov byte [ecx + edx], 0x00
-
 
     leave
     ret
@@ -109,7 +107,6 @@ residual_test:
     mov ecx, 0x03
     xor edx, edx
     div ecx
-    ; pop ecx
     cmp edx, 0x00
     jnz failed
 
@@ -156,13 +153,6 @@ main:
     call calc
     add esp, 0x4
     mov [result], eax
-
-    ; compare result with user code
-    ; push user_code
-    ; push user_code
-    ; push user_code
-    ; call len_check
-    ; add esp, 0x0c
 
     mov eax, [result]
     mov ebx, [user_code]
